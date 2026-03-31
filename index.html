@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +8,12 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
   <header class="site-header" id="site-header">
@@ -25,6 +28,17 @@
         <li><a href="#cv"       class="nav__link">CV</a></li>
         <li><a href="#contact"  class="nav__link">Contact</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="theme-toggle__sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-toggle__moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
     </nav>
   </header>
 
@@ -32,16 +46,28 @@
 
     <!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
     <section id="hero" class="hero">
+      <div class="hero__blobs" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__blob hero__blob--3"></div>
+      </div>
       <div class="hero__bg-grid" aria-hidden="true"></div>
-      <div class="container hero__inner">
 
+      <div class="container hero__inner">
         <div class="hero__text fade-up">
           <div class="hero__eyebrow-wrap">
             <span class="hero__status-dot"></span>
             <span class="hero__eyebrow">Available for new opportunities · Coventry, UK</span>
           </div>
-          <h1 class="hero__name">Manoj<br>Narayan<br><em>Ramesh</em></h1>
-          <p class="hero__title">Dynamics 365 Lead Functional Consultant</p>
+          <h1 class="hero__name">
+            <span class="hero__name-line">Manoj</span>
+            <span class="hero__name-line">Narayan</span>
+            <span class="hero__name-line hero__name-line--accent">Ramesh</span>
+          </h1>
+          <p class="hero__title">
+            <span class="hero__title-dot"></span>
+            Dynamics 365 Lead Functional Consultant
+          </p>
           <p class="hero__tagline">
             8+ years delivering enterprise Field Service and ERP transformations
             on Microsoft Dynamics 365 — helping global organisations achieve
@@ -56,17 +82,17 @@
           </div>
           <div class="hero__stats">
             <div class="hero__stat">
-              <span class="hero__stat-value">8+</span>
+              <span class="hero__stat-value" data-count="8">0</span><span class="hero__stat-value">+</span>
               <span class="hero__stat-label">Years Experience</span>
             </div>
             <div class="hero__stat-divider"></div>
             <div class="hero__stat">
-              <span class="hero__stat-value">3</span>
+              <span class="hero__stat-value" data-count="3">0</span>
               <span class="hero__stat-label">Continents</span>
             </div>
             <div class="hero__stat-divider"></div>
             <div class="hero__stat">
-              <span class="hero__stat-value">98%</span>
+              <span class="hero__stat-value" data-count="98">0</span><span class="hero__stat-value">%</span>
               <span class="hero__stat-label">Client Satisfaction</span>
             </div>
           </div>
@@ -98,8 +124,8 @@
             Diamond Award
           </div>
         </div>
-
       </div>
+
       <div class="hero__scroll-hint" aria-hidden="true">
         <span>Scroll</span>
         <div class="hero__scroll-line"></div>
@@ -125,15 +151,12 @@
               Recognised as a <strong>'Young Achiever'</strong> by Hitachi (Fortune 500) for
               consistently high performance, I have led cross-functional agile teams through
               complex global implementations — from requirements gathering and fit-gap analysis
-              through to go-live and post-deployment support. My approach centres on proactive
-              stakeholder management and translating business needs into practical, scalable
-              technology solutions.
+              through to go-live and post-deployment support.
             </p>
             <p>
               I hold an <strong>MSc in International Business from Warwick Business School</strong>
               and a B.E. in Computer Science, giving me a dual lens of commercial strategy and
-              technical depth. I am Microsoft Certified (MB-240 Field Service) and experienced
-              across the Power Platform, Azure DevOps, and Agile delivery frameworks.
+              technical depth. Microsoft Certified (MB-240 Field Service).
             </p>
             <div class="about__awards">
               <div class="award-badge">
@@ -149,43 +172,61 @@
           <div class="about__skills fade-up fade-up--delay">
             <h3 class="about__skills-title">Core Competencies</h3>
             <ul class="skills-list">
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>D365 Field Service (Expert)
+              <li class="skills-list__item" data-skill="95">
+                <div class="skills-list__header">
+                  <span class="skills-list__dot"></span>
+                  <span>D365 Field Service</span>
+                  <span class="skills-list__level">Expert</span>
+                </div>
+                <div class="skills-list__bar"><div class="skills-list__fill"></div></div>
               </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Windows Power Platform (Expert)
+              <li class="skills-list__item" data-skill="92">
+                <div class="skills-list__header">
+                  <span class="skills-list__dot"></span>
+                  <span>Power Platform</span>
+                  <span class="skills-list__level">Expert</span>
+                </div>
+                <div class="skills-list__bar"><div class="skills-list__fill"></div></div>
               </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>ERP Implementation &amp; Fit-Gap Analysis
+              <li class="skills-list__item" data-skill="88">
+                <div class="skills-list__header">
+                  <span class="skills-list__dot"></span>
+                  <span>ERP Implementation &amp; Fit-Gap</span>
+                  <span class="skills-list__level">Expert</span>
+                </div>
+                <div class="skills-list__bar"><div class="skills-list__fill"></div></div>
               </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Agile / Cross-Functional Team Leadership
+              <li class="skills-list__item" data-skill="85">
+                <div class="skills-list__header">
+                  <span class="skills-list__dot"></span>
+                  <span>Stakeholder Management</span>
+                  <span class="skills-list__level">Expert</span>
+                </div>
+                <div class="skills-list__bar"><div class="skills-list__fill"></div></div>
               </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Stakeholder &amp; Change Management
+              <li class="skills-list__item" data-skill="80">
+                <div class="skills-list__header">
+                  <span class="skills-list__dot"></span>
+                  <span>Azure DevOps</span>
+                  <span class="skills-list__level">Good</span>
+                </div>
+                <div class="skills-list__bar"><div class="skills-list__fill"></div></div>
               </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Data Visualisation &amp; Reporting
-              </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Azure DevOps (Good)
-              </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Product Lifecycle Management
+              <li class="skills-list__item" data-skill="78">
+                <div class="skills-list__header">
+                  <span class="skills-list__dot"></span>
+                  <span>Data Migration &amp; Integration</span>
+                  <span class="skills-list__level">Good</span>
+                </div>
+                <div class="skills-list__bar"><div class="skills-list__fill"></div></div>
               </li>
             </ul>
             <h3 class="about__skills-title" style="margin-top:1.75rem">Certifications</h3>
-            <ul class="skills-list">
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>MB-240 Microsoft D365 Field Service
-              </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Microsoft Certified Professional
-              </li>
-              <li class="skills-list__item">
-                <span class="skills-list__dot"></span>Cambridge Business English Certificate
-              </li>
-            </ul>
+            <div class="cert-chips">
+              <span class="cert-chip">MB-240 Field Service</span>
+              <span class="cert-chip">Microsoft Certified Professional</span>
+              <span class="cert-chip">Cambridge Business English</span>
+            </div>
           </div>
         </div>
       </div>
@@ -197,13 +238,12 @@
         <div class="section-header fade-up">
           <span class="section-label">Case Studies</span>
           <h2 class="section-title">Selected Projects</h2>
-          <p class="section-desc">
-            A selection of enterprise engagements delivered across global markets.
-          </p>
+          <p class="section-desc">A selection of enterprise engagements delivered across global markets.</p>
         </div>
         <div class="projects__grid">
 
-          <article class="card fade-up">
+          <article class="card tilt-card fade-up">
+            <div class="card__glow" aria-hidden="true"></div>
             <div class="card__header">
               <span class="card__number">01</span>
               <div class="card__tags">
@@ -225,7 +265,8 @@
             </div>
           </article>
 
-          <article class="card fade-up fade-up--delay">
+          <article class="card tilt-card fade-up fade-up--delay">
+            <div class="card__glow" aria-hidden="true"></div>
             <div class="card__header">
               <span class="card__number">02</span>
               <div class="card__tags">
@@ -246,7 +287,8 @@
             </div>
           </article>
 
-          <article class="card fade-up">
+          <article class="card tilt-card fade-up">
+            <div class="card__glow" aria-hidden="true"></div>
             <div class="card__header">
               <span class="card__number">03</span>
               <div class="card__tags">
@@ -257,9 +299,8 @@
             <h3 class="card__title">Lee Company — Construction IP Delivery</h3>
             <p class="card__desc">
               Delivered technical ERP solutions for Hitachi's largest Construction IP project
-              with Lee Company. Led a team of four consultants, achieved a 98% client
-              satisfaction score, and avoided project penalties exceeding $200K through
-              timely, quality delivery.
+              with Lee Company. Led a team of four, achieved a 98% client satisfaction score,
+              and avoided project penalties exceeding $200K through timely, quality delivery.
             </p>
             <div class="card__meta">
               <span class="card__meta-item">98% Client Satisfaction</span>
@@ -268,7 +309,8 @@
             </div>
           </article>
 
-          <article class="card fade-up fade-up--delay">
+          <article class="card tilt-card fade-up fade-up--delay">
+            <div class="card__glow" aria-hidden="true"></div>
             <div class="card__header">
               <span class="card__number">04</span>
               <div class="card__tags">
@@ -280,8 +322,7 @@
             <p class="card__desc">
               Maintained and evolved Hitachi's suite of industry solution IPs spanning Banking
               &amp; Investments, Warranty, Extended Field Service, Insurance, and Healthcare —
-              with end-to-end product lifecycle ownership and contributions generating
-              30% of organisational revenue.
+              with end-to-end product lifecycle ownership contributing 30% of organisational revenue.
             </p>
             <div class="card__meta">
               <span class="card__meta-item">5 Industry Verticals</span>
@@ -326,9 +367,9 @@
                 <h3 class="cv__entry-role">Product Management Intern</h3>
                 <p class="cv__entry-org">Jaguar Land Rover</p>
                 <p class="cv__entry-desc">
-                  Developed a product strategy to increase feature adoption within
-                  the Quality Management Software, applying Agile and digital strategy
-                  frameworks from the Warwick MSc programme.
+                  Developed a product strategy to increase feature adoption within the
+                  Quality Management Software, applying Agile and digital strategy frameworks
+                  from the Warwick MSc programme.
                 </p>
               </div>
             </div>
@@ -342,9 +383,8 @@
                 <p class="cv__entry-desc">
                   Managed client engagements across North America, Europe, and Asia.
                   Specialised in D365 Field Service ERP implementations, fit-gap analysis,
-                  and digital transformation programmes. Led Construction IP delivery for
-                  Lee Company (98% satisfaction, Diamond Award). Contributed to 30% of
-                  organisational revenue. Trained 40+ junior consultants.
+                  and digital transformation. Led Lee Company delivery (98% satisfaction,
+                  Diamond Award). Contributed 30% of organisational revenue. Trained 40+ consultants.
                 </p>
               </div>
             </div>
@@ -373,12 +413,8 @@
               </svg>
             </div>
             <p class="cv__download-label">Full CV available as PDF</p>
-            <a href="assets/manoj-narayan-ramesh-cv.pdf" class="btn btn--primary" download>
-              Download CV
-            </a>
-            <p class="cv__download-hint">
-              Place your CV at <code>assets/manoj-narayan-ramesh-cv.pdf</code> to enable this download.
-            </p>
+            <a href="assets/manoj-narayan-ramesh-cv.pdf" class="btn btn--primary" download>Download CV</a>
+            <p class="cv__download-hint">Place your CV at <code>assets/manoj-narayan-ramesh-cv.pdf</code> to enable this download.</p>
           </div>
         </div>
       </div>
@@ -390,50 +426,24 @@
         <div class="section-header fade-up">
           <span class="section-label">Contact</span>
           <h2 class="section-title">Get in Touch</h2>
-          <p class="section-desc">
-            Interested in working together or have a project in mind? Send me a message
-            and I'll get back to you within one business day.
-          </p>
+          <p class="section-desc">Interested in working together? Send me a message and I'll get back to you within one business day.</p>
         </div>
         <form class="contact-form fade-up" id="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="name">Name <span aria-hidden="true">*</span></label>
-              <input
-                class="form-input"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Jane Smith"
-                required
-                autocomplete="name"
-              />
+              <input class="form-input" type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
               <span class="form-error" id="name-error" role="alert"></span>
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
-              <input
-                class="form-input"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="jane@example.com"
-                required
-                autocomplete="email"
-              />
+              <input class="form-input" type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
               <span class="form-error" id="email-error" role="alert"></span>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
-            <textarea
-              class="form-input form-input--textarea"
-              id="message"
-              name="message"
-              placeholder="Tell me about your project or enquiry…"
-              required
-              rows="6"
-            ></textarea>
+            <textarea class="form-input form-input--textarea" id="message" name="message" placeholder="Tell me about your project or enquiry…" required rows="6"></textarea>
             <span class="form-error" id="message-error" role="alert"></span>
           </div>
           <div class="form-footer">
@@ -443,9 +453,7 @@
             </button>
           </div>
           <div class="form-success" id="form-success" aria-live="polite">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             Thanks! Your message has been received. I'll be in touch shortly.
           </div>
         </form>
@@ -459,13 +467,7 @@
     <div class="container footer__inner">
       <p class="footer__copy">&copy; <span id="footer-year"></span> Manoj Narayan Ramesh</p>
       <nav class="footer__links" aria-label="Social links">
-        <a
-          href="https://www.linkedin.com/in/realmanoj"
-          class="footer__link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn profile"
-        >
+        <a href="https://www.linkedin.com/in/realmanoj" class="footer__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
             <rect x="2" y="9" width="4" height="12"/>
